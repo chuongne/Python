@@ -1,0 +1,27 @@
+from datetime import datetime
+class SinhVien:
+    truong = "Dai Hoc Da Lat"
+    def __init__(self, maSo: int,hoTen: str, ngaySinh: datetime) -> None:
+        self._maSo = maSo
+        self._hoTen= hoTen
+        self._ngaySinh = ngaySinh
+    @property
+    def hoTen(self):
+        return self.hoTen
+    @hoTen.setter
+    def hoTen(self, hoTen: str):
+        self._hoten = hoTen
+    @property
+    def mssv(self):
+        return self._maSo
+    @mssv.setter
+    def mssv(self, ms:int ):
+        if self.ktMsHopLe(ms):
+            self._maSo = ms
+    @staticmethod
+    def ktMsHopLe(mssv: int):
+        return len(str(mssv)) == 7
+    
+    def __str__(self) -> str:
+        return f"{self._maSo}\t{self._hoTen}\t{self._ngaySinh}"
+    
